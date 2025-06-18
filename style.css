@@ -1,0 +1,428 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #ba4949; /* Main red/maroon background from image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-color 0.3s ease, background-image 0.3s ease;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 20px;
+}
+
+/* Navbar Styling */
+.navbar {
+    width: 100%;
+    max-width: 700px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+.nav-left .logo {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.nav-left .logo i {
+    margin-right: 8px;
+}
+
+.nav-right {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-item {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+}
+
+.nav-item:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.nav-item i {
+    margin-right: 5px;
+}
+
+.dot-menu {
+    padding: 8px 12px;
+}
+
+/* Main Content Area */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    /* Ensure content is above any background changes if z-index is used */
+    position: relative;
+    z-index: 1; /* Make sure these cards are above the body background */
+}
+
+/* Pomodoro Card - Critical for "khung" */
+.pomodoro-card {
+    background-color: #c15757; /* A slightly lighter, more opaque red/maroon for distinctness */
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow for better separation */
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    /* Add specific z-index if needed for complex layering, though not strictly required here */
+}
+
+.mode-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    background-color: rgba(0, 0, 0, 0.15); /* Background for tabs container */
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.tab-button {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tab-button.active {
+    background-color: #e7e7e7; /* Light background for active tab */
+    color: #555; /* Darker text for active tab */
+}
+
+.tab-button:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.timer-display {
+    font-size: 6em;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.start-button {
+    background-color: #fff;
+    color: #ba4949;
+    border: none;
+    padding: 15px 50px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.8em;
+    font-weight: bold;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+}
+
+.start-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 12px rgba(0, 0, 0, 0.3);
+}
+
+.focus-info {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Tasks Card - Critical for "khung" */
+.tasks-card {
+    background-color: #c15757; /* Same slightly lighter, more opaque red/maroon */
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow for better separation */
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    /* Add specific z-index if needed */
+}
+
+.tasks-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tasks-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.add-task-area {
+    margin-top: 20px;
+}
+
+.add-task-button {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    border: 2px dashed rgba(255, 255, 255, 0.4);
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.add-task-button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.add-task-button i {
+    margin-right: 10px;
+}
+
+.task-input-form {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.task-input-form input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #333;
+}
+
+.task-input-form input[type="text"]::placeholder {
+    color: #aaa;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.cancel-button {
+    background-color: #f0f0f0;
+    color: #555;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+}
+
+.cancel-button:hover {
+    background-color: #e0e0e0;
+}
+
+.save-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+}
+
+.save-button:hover {
+    background-color: #218838;
+}
+
+/* Settings Modal Styles */
+.settings-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    color: #333;
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: #555;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #888;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: #333;
+}
+
+.modal-body {
+    margin-bottom: 20px;
+}
+
+.modal-body h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #666;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 5px;
+}
+
+.time-inputs label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.time-inputs input[type="number"] {
+    width: 80px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1em;
+}
+
+.background-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.background-settings label {
+    color: #555;
+    margin-bottom: -5px;
+}
+
+.background-settings input[type="color"] {
+    width: 100px;
+    height: 35px;
+    border: 1px solid #ddd;
+    padding: 0;
+    cursor: pointer;
+}
+
+.background-settings input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.background-settings button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    align-self: flex-start;
+    transition: background-color 0.2s ease;
+}
+
+.background-settings button:hover {
+    background-color: #2980b9;
+}
+
+.or-separator {
+    text-align: center;
+    margin: 10px 0;
+    color: #888;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+.file-name-display {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: -10px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.apply-settings-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+}
+
+.apply-settings-button:hover {
+    background-color: #218838;
+}
+
+.hidden {
+    display: none;
+}
